@@ -12,10 +12,7 @@ class Training:
         )
 
     def train_valid_generator(self):
-        datagenerator_kwargs = dict(
-            rescale = 1./255,
-            validation_split = 0.20
-        )
+        rescale = 1./255
 
         dataflow_kwargs = dict(
             target_size = self.config.params_image_size[:-1],  # num channels unneeded
@@ -25,11 +22,10 @@ class Training:
 
         # Validation set datagenerator
         valid_datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
-            **datagenerator_kwargs
+            rescale=rescale
         )
         self.valid_generator = valid_datagenerator.flow_from_directory(
-            directory=self.config.training_data,
-            subset="validation",
+            directory=self.config.validation_data,
             shuffle=False,
             **dataflow_kwargs
         )
@@ -42,14 +38,15 @@ class Training:
                 height_shift_range=0.2,
                 shear_range=0.2,
                 zoom_range=0.2,
-                **datagenerator_kwargs
+                rescale=rescale
             )
         else:
-            train_datagenerator = valid_datagenerator
+            train_datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
+                rescale=rescale
+            )
 
         self.train_generator = train_datagenerator.flow_from_directory(
             directory=self.config.training_data,
-            subset="training",
             shuffle=True,
             **dataflow_kwargs
         )
