@@ -1,0 +1,60 @@
+schema: '2.0'
+stages:
+  data_ingestion:
+    cmd: python src/classifier/pipeline/stage01_data_ingestion.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 72634ea0d008cb031faf5ea0fe6ecc0d
+      size: 1211
+    - path: src/classifier/pipeline/stage01_data_ingestion.py
+      hash: md5
+      md5: c056be5127ee4a29634cc0e2aff2b819
+      size: 939
+    outs:
+    - path: artifacts/data_ingestion/birds.csv
+      hash: md5
+      md5: f4aec5834815d7300c27251c710f5068
+      size: 6932617
+    - path: artifacts/data_ingestion/test
+      hash: md5
+      md5: 9352456c34568fd77a939d9a3bca6a53.dir
+      size: 60855841
+      nfiles: 2625
+    - path: artifacts/data_ingestion/train
+      hash: md5
+      md5: 3abeb5de6c11c8f7e3ff375acb01f3ab.dir
+      size: 1908363255
+      nfiles: 84635
+    - path: artifacts/data_ingestion/valid
+      hash: md5
+      md5: cf59c8eb92df95dec535fc7100df9f02.dir
+      size: 60503881
+      nfiles: 2625
+  prepare_base_model:
+    cmd: python src/classifier/pipeline/stage02_prepare_base_model.py
+    deps:
+    - path: config/config.yaml
+      hash: md5
+      md5: 72634ea0d008cb031faf5ea0fe6ecc0d
+      size: 1211
+    - path: src/classifier/pipeline/stage02_prepare_base_model.py
+      hash: md5
+      md5: b17d2ec558ea01815ebb5232af39cb9f
+      size: 933
+    params:
+      params.yaml:
+        CLASSES: 525
+        IMAGE_SIZE:
+        - 224
+        - 224
+        - 3
+        INCLUDE_TOP: false
+        LEARNING_RATE: 0.001
+        WEIGHTS: imagenet
+    outs:
+    - path: artifacts/prepare_base_model
+      hash: md5
+      md5: 8f7d611521a10b592fba09d2727bf75e.dir
+      size: 170544300
+      nfiles: 2
