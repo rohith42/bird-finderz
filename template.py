@@ -30,7 +30,8 @@ filesList = [
     "research/trials.ipynb",
     "templates/index.html",
     "static/styles.css",
-    "app.py"
+    "app.py",
+    "main.py"
 ]
 
 for path in filesList:
