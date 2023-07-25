@@ -29,7 +29,8 @@ filesList = [
     "setup.py",
     "research/trials.ipynb",
     "templates/index.html",
-    "static/styles.css"
+    "static/styles.css",
+    "app.py"
 ]
 
 for path in filesList:
