@@ -7,27 +7,18 @@ class Evaluation:
     def __init__(self, config: EvaluationConfig):
         self.config = config
 
-    def _valid_generator(self):
-        datagenerator_kwargs = dict(
-            rescale = 1./255,
-            validation_split = 0.20
+    def _test_generator(self):
+        # Test set datagenerator
+        test_datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
+            rescale=1./255,
+            validation_split=0
         )
-
-        dataflow_kwargs = dict(
+        self.test_generator = test_datagenerator.flow_from_directory(
+            directory=self.config.test_data,
+            shuffle=False,
             target_size = self.config.params_image_size[:-1],  # num channels unneeded
             batch_size = self.config.params_batch_size,
             interpolation = "bilinear"
-        )
-
-        # Validation set datagenerator
-        valid_datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
-            **datagenerator_kwargs
-        )
-        self.valid_generator = valid_datagenerator.flow_from_directory(
-            directory=self.config.training_data,
-            subset="validation",
-            shuffle=False,
-            **dataflow_kwargs
         )
 
     @staticmethod
@@ -36,8 +27,8 @@ class Evaluation:
 
     def evaluation(self):
         self.model = self.load_model(self.config.path_of_model)
-        self._valid_generator()
-        self.score = self.model.evaluate(self.valid_generator)
+        self._test_generator()
+        self.score = self.model.evaluate(self.test_generator)
 
     def save_score(self):
         scores = {"loss": self.score[0], "accuracy": self.score[1]}
