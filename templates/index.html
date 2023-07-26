@@ -4,24 +4,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Chicken Disease Classifier</title>
+    <title>Bird Finderz</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
-    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='favicon.ico') }}" />
+    <link rel="icon" type="image/x-icon" href="{{ url_for('static', filename='bird.png') }}" />
 </head>
 <body>
     <div class="main container">
 		<section class="iupload">
-			<h2 class="text-center py-4">Chicken Disease Classfier</h2>
+			<h2 class="text-center py-4">Bird Finderz</h2>
             <div class="row">
                 <p>
-                    Upload a picture of your chicken's feces and get a prediction on whether
-                    that chicken is likely healthy or has some disease.
+                    Upload a picture of a bird and get a prediction of what species the bird is!
                 </p>
+            </div>
+			<div class="row">
                 <p>
-                    Please note that this is only a prediction based of a trained 
-                    image classification model. 
-                    The predictions are not an official, medically-approved diagnosis.
+                    Try to center the bird in the image and to get the most accurate predictions.
                 </p>
             </div>
 			<div class="row">
@@ -37,17 +36,6 @@
 								<button type="button" class="btn btn-primary col-md-5 col-xs-5 ml-3 mr-4" id="uload">Upload</button>
 								<button id="send" type="button" class="btn btn-success col-md-5 col-xs-5">Predict</button>
 							</div>
-
-
-
-
-
-
-							<!-- change url value  -->
-
-
-
-
 							<input type="hidden" class="form-control mr-2" id="url" placeholder="Enter REST Api url..." value="../predict"/>
 							<input name="upload" type="file" id="fileinput" style="position:absolute;top:-500px;"/><br/>
 						</form>
@@ -56,8 +44,7 @@
 				<div class="col-md-6 col-xs-12 right-part">
 					<h5 class="mb-2"><center>Prediction Results</center></h5>
 					<div class="row">
-						<div class="res-part2 col-md-5 col-xs-12"></div>
-						<div class="res-part col-md-5 col-xs-12"><div class="jsonRes"></div></div>
+						<div class="res-part"><div class="jsonRes"></div></div>
 					</div>
 				</div>
 			</div>

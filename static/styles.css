@@ -39,18 +39,10 @@ body {
     border: 1px solid #dedede;
     margin-left: 20px;
     height: 310px;
-    width: 100%;
+    width: 70%;
     padding: 5px;
     margin: 0px auto;
     overflow: auto;
-  }
-  
-  .res-part2 {
-    border: 1px solid #dedede;
-    height: 310px;
-    width: 100%;
-    padding: 5px;
-    margin: 0px auto;
   }
   
   .resp-img {
@@ -69,43 +61,6 @@ body {
   
   .btn-part {
     width: 325px;
-  }
-  
-  textarea,
-  select,
-  .form-control,
-  .custom-select,
-  button.btn,
-  .btn-primary,
-  input[type="text"],
-  input[type="url"],
-  .uneditable-input {
-    border: 1px solid #363e75;
-    outline: 0 !important;
-    border-radius: 0px;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    -moz-transition: none;
-    -webkit-transition: none;
-  }
-  
-  textarea:focus,
-  select:focus,
-  .form-control:focus,
-  .btn:focus,
-  .btn-primary:focus,
-  .custom-select:focus,
-  input[type="text"]:focus,
-  .uneditable-input:focus {
-    border: 1px solid #007bff;
-    outline: 0 !important;
-    border-radius: 0px;
-    box-shadow: none;
-    -webkit-box-shadow: none;
-    -moz-box-shadow: none;
-    -moz-transition: none;
-    -webkit-transition: none;
   }
   
   #loading {
@@ -149,7 +104,6 @@ body {
   }
   
   .right-part {
-    border: 1px solid #dedede;
     padding: 5px;
   }
   
