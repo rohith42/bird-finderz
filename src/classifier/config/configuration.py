@@ -3,7 +3,7 @@ from classifier.constants import *
 from classifier.utils.common import read_yaml, create_directories
 from classifier.entity.config_entity import (
     DataIngestionConfig, PrepareBaseModelConfig, PrepareCallbacksConfig,
-    TrainingConfig, EvaluationConfig, TrainedModelConfig
+    TrainingConfig, EvaluationConfig, TrainedModelConfig, PredictionConfig
 )
 
 class ConfigurationManager:
@@ -83,6 +83,15 @@ class ConfigurationManager:
             params_batch_size=self.params.BATCH_SIZE
         )
         return eval_config
+    
+    def get_prediction_config(self) -> PredictionConfig:
+        prediction = self.config.prediction
+        pred_config = PredictionConfig(
+            path_of_model=Path(self.config.training.trained_model_path),
+            data_file_path=Path(prediction.data_file_path),
+            labels_column_name=Path(prediction.labels_column_name)
+        )
+        return pred_config
     
     def get_trained_model_config(self) -> TrainedModelConfig:
         config = self.config.get_trained_model

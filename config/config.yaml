@@ -24,7 +24,10 @@ training:
 
 evaluation:
   test_data_path: artifacts/data_ingestion/test
+
+prediction:
   data_file_path: artifacts/data_ingestion/birds.csv
+  labels_column_name: labels
 
 get_trained_model:
   root_dir: artifacts/training

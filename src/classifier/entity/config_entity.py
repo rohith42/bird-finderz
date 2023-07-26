@@ -46,6 +46,12 @@ class EvaluationConfig:
     params_batch_size: int
 
 @dataclass(frozen=True)
+class PredictionConfig:
+    path_of_model: Path
+    data_file_path: Path
+    labels_column_name: str
+
+@dataclass(frozen=True)
 class TrainedModelConfig:
     root_dir: Path
     source: str
