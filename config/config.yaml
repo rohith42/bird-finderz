@@ -28,6 +28,6 @@ evaluation:
 
 get_trained_model:
   root_dir: artifacts/training
-  source: "https://rohithprojectstorage.blob.core.windows.net/cdmodel/model.zip"
+  source: "https://rohithprojectstorage.blob.core.windows.net/birdmodel/model.zip"
   local_data_file: artifacts/training/model.zip
   unzip_dir: artifacts/training
