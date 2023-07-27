@@ -27,6 +27,7 @@ evaluation:
 
 prediction:
   data_file_path: artifacts/data_ingestion/birds.csv
+  data_file_path_alt: artifacts/training/birds.csv
   labels_column_name: labels
 
 get_trained_model:

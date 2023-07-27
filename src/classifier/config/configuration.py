@@ -86,9 +86,13 @@ class ConfigurationManager:
     
     def get_prediction_config(self) -> PredictionConfig:
         prediction = self.config.prediction
+        datafile_path = Path(prediction.data_file_path)
+        if not os.path.exists(datafile_path):
+            datafile_path = Path(prediction.data_file_path_alt)
+
         pred_config = PredictionConfig(
             path_of_model=Path(self.config.training.trained_model_path),
-            data_file_path=Path(prediction.data_file_path),
+            data_file_path=datafile_path,
             labels_column_name=Path(prediction.labels_column_name)
         )
         return pred_config
