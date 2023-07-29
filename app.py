@@ -43,6 +43,11 @@ def getTrainedModel():
 @app.route("/predict", methods=['POST'])
 @cross_origin()
 def predictRoute():
+    # Downloads model and birds.csv if needed before prediction
+    download_model_pipeline = DownloadModelPipeline()
+    if not download_model_pipeline.readyToPredict():
+        download_model_pipeline.main()
+
     image = request.json['image']
     decodeImage(image, clApp.filename)
     result = clApp.classifier.predict()

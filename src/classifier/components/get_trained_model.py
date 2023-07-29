@@ -38,3 +38,7 @@ class GetTrainedModel:
             "size" : get_size(Path(modelpath))
         }
         return status
+    
+    def modelExists(self):
+        modelpath = os.path.join(self.config.unzip_dir, "model.h5")
+        return os.path.exists(modelpath)
