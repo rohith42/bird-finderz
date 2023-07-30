@@ -5,4 +5,4 @@ INCLUDE_TOP: False
 EPOCHS: 25
 CLASSES: 525  # number of output classes
 WEIGHTS: imagenet
-LEARNING_RATE: 0.006
+LEARNING_RATE: 0.003
