@@ -1,5 +1,6 @@
 from flask import Flask, request, jsonify, render_template
 import os
+import shutil
 from flask_cors import CORS, cross_origin
 from classifier.utils.common import decodeImage
 from classifier.pipeline.predict import PredictionPipeline
@@ -32,9 +33,10 @@ def trainRoute():
     # os.system("dvc repro")
     # return "Training done successfully!"
 
-@app.route("/getTrainedModel", methods=['GET', 'POST'])
+@app.route("/download", methods=['GET', 'POST'])
 @cross_origin()
-def getTrainedModel():
+def downloadModel():
+    shutil.rmtree("artifacts/training")
     get_model_pipeline = DownloadModelPipeline()
     status = get_model_pipeline.main()
     return f"Trained model downloaded! {status}"
