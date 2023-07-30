@@ -2,7 +2,7 @@ AUGMENTATION: False
 IMAGE_SIZE: [224, 224, 3]  # as per VGG-16 model
 BATCH_SIZE: 64
 INCLUDE_TOP: False
-EPOCHS: 35
+EPOCHS: 25
 CLASSES: 525  # number of output classes
 WEIGHTS: imagenet
-LEARNING_RATE: 0.005
+LEARNING_RATE: 0.006
