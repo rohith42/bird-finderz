@@ -7,12 +7,6 @@ This particular model is trained to classify 525 bird species based on a dataset
 
 <hr>
 
-### Currently deployed on Azure!
-Visit https://birdfinderz.azurewebsites.net
-> Note: Page may take a while to load
-
-<hr>
-
 ### Steps to run locally:
 
 1. Clone this repository
